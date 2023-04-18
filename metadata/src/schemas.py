@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class MetadataResponse(BaseModel):
+class GetMetadataResponse(BaseModel):
     id: int
     title: str
     description: str

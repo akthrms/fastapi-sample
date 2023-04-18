@@ -8,3 +8,11 @@ services:
       - ./metadata/src:/app
     ports:
       - 8080:8080
+
+  rating:
+    build: ./rating/.
+    container_name: rating
+    volumes:
+      - ./rating/src:/app
+    ports:
+      - 8081:8080
