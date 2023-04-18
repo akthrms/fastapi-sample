@@ -17,3 +17,17 @@ def get_metadata(id: int) -> schemas.GetMetadataResponse:
         description=metadata.description,
         director=metadata.director,
     )
+
+
+@router.get("/metadata", response_model=list[schemas.GetMetadataResponse])
+def get_all() -> list[schemas.GetMetadataResponse]:
+    metadata = cruds.get_all()
+    return [
+        schemas.GetMetadataResponse(
+            id=item.id,
+            title=item.title,
+            description=item.description,
+            director=item.director,
+        )
+        for item in metadata
+    ]

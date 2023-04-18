@@ -8,4 +8,5 @@ def get_ratings(metadata_id: int) -> list[models.Rating]:
 
 
 def put_rating(metadata_id: int, value: int):
-    in_memory_store.append(models.Rating(len(in_memory_store) + 1, metadata_id, value))
+    new_rating = models.Rating(len(in_memory_store) + 1, metadata_id, value)
+    in_memory_store.append(new_rating)

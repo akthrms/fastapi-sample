@@ -17,3 +17,7 @@ def get_metadata(id: int) -> Optional[models.Metadata]:
             return metadata
 
     return None
+
+
+def get_all() -> list[models.Metadata]:
+    return in_memory_store
