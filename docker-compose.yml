@@ -16,6 +16,8 @@ services:
       - ./rating/src:/app
     ports:
       - 8081:8080
+    environment:
+      - METADATA_API_URL=http://metadata:8080/metadata
 
   movie:
     build: ./movie/.
