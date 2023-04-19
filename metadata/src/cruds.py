@@ -11,7 +11,7 @@ in_memory_store = [
 ]
 
 
-def get_metadata(id: int) -> Optional[models.Metadata]:
+def get_metadata_by_id(id: int) -> Optional[models.Metadata]:
     for metadata in in_memory_store:
         if metadata.id == id:
             return metadata
@@ -19,5 +19,5 @@ def get_metadata(id: int) -> Optional[models.Metadata]:
     return None
 
 
-def get_all() -> list[models.Metadata]:
+def get_metadata() -> list[models.Metadata]:
     return in_memory_store

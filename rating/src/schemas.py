@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 
 
-class PutRatingRequest(BaseModel):
+class RatingRequest(BaseModel):
     metadata_id: int
     value: int
 
 
-class GetRatingResponse(BaseModel):
+class RatingResponse(BaseModel):
     value: float
