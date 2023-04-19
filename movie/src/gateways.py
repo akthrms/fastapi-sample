@@ -4,12 +4,12 @@ from typing import Optional
 import models
 import requests
 
-metadata_root_url = os.environ["METADATA_API_URL"]
-rating_root_url = os.environ["RATING_API_URL"]
+metadata_endpoint = os.environ["METADATA_ENDPOINT"]
+rating_endpoint = os.environ["RATING_ENDPOINT"]
 
 
 def get_movies() -> Optional[list[models.Movie]]:
-    metadata_response = requests.get(metadata_root_url)
+    metadata_response = requests.get(metadata_endpoint)
     if metadata_response.status_code != 200:
         return None
 
@@ -18,7 +18,7 @@ def get_movies() -> Optional[list[models.Movie]]:
     movies = []
     for item in metadata:
         metadata_id = item["id"]
-        rating_response = requests.get(f"{rating_root_url}/{metadata_id}")
+        rating_response = requests.get(f"{rating_endpoint}/{metadata_id}")
         if rating_response.status_code != 200:
             return None
 
